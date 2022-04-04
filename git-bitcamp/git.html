@@ -151,10 +151,25 @@
           <p>Assumption: you have a linux terminal</p>
           <ul>
           <li>Make Github Account</li>
-          <li>Install Git</li>
-          <li class="fade-up">Setup SSH Keys</li>
+          <li data-id="5">Install Git</li>
+          <li data-id="6" class="fade-up">Setup SSH Keys</li>
           </ul> 
           <p>Goal: Clone/make our first Repository</p>
+          </section>
+          <section data-auto-animate>
+          <p>Install Git</p>
+          <p>`sudo apt install git`</p>
+          </section>
+          <section data-auto-animate>
+          <p>setup SSH keys</p>
+          <p>These are for security: take CMSC414 or CMSC356</p>
+          <p>`ssh-keygen -t rsa`</p>
+          </section>
+          <section data-auto-animate>
+          <p>Clone a repo</p>
+          <p>Make a repo on github</p>
+          <p>`git clone git@github.com:&lt;username&gt;/&lt;repo&gt;`</p>
+          <p class='fragment'>`git clone git@github.com:cliffbakalian/workshops`</p>
           </section>
         </section>
 
@@ -165,18 +180,42 @@
 					<div class='tl-circle' data-id="3" style="background:green;bottom:-30px;"></div>
 					<div class='tl-circle' data-id="4" style="bottom:-50px;"></div>
           <section data-auto-animate>
-          <p>Relation: A relation $R$ from set $A$ to set $B$ is any subset of $A \times B$</p>
+          <p>`Touch file.txt`</p>
+          <p class='fragment'>edit the file</p>
+          <p class='fragment'>`git add file.txt`</p>
+          <p class='fragment'>`git commit -m "Added a file"`</p>
+          <p class='fragment'>`git push"`</p>
+          <p class='fragment'>Repeat</p>
+          </section>
+          <section data-auto-animate>
+          <p>`git log`</p>
+          <p class='fragment'>`git revert &lt;hash&gt;</p>
+          <p class='fragment'>`git stash`</p>
+          <p class='fragment'>`git pop`</p>
+          <p class='fragment'>`git reset &lt;hash&gt;`</p>
           </section>
         </section>
 
 				<section data-auto-animate style="height:600px">
-					<h3>Functions</h3>
+					<h3>Collaborative Coding</h3>
 					<div class='tl-circle' data-id="1" style="bottom:10px;"></div>
 					<div class='tl-circle' data-id="2" style="bottom:-10px;"></div>
 					<div class='tl-circle' data-id="3" style="bottom:-30px;"></div>
 					<div class='tl-circle' data-id="4" style="background:cyan;bottom:-50px;"></div>
           <section data-auto-animate>
-          <p>Function: Something that takes elements of set $X$ and maps them an element of set $Y$</p>
+          <p>Make a Friend</p>
+          <p>clone thier repo</p>
+          <p>make a file, add, commit, push</p>
+          <p>have friend pull thier repo</p>
+          </section>
+          <section data-auto-animate>
+          <p>branching allows for concurrent changes in a systmatic manner</P>
+          <p class="fragment">`git branch new_branch`</P>
+          <p class="fragment">`git checkout new_branch`</P>
+          <p class="fragment">make a file and edit, add,commit, push</P>
+          <p class="fragment">`git checkout main`</P>
+          <p class="fragment">`git merge new_branch`</P>
+          </section>
         </section>
       </div>
 		</div>
