@@ -60,10 +60,10 @@
           <p>Code and Project Design is no different</p>
       	</section>     	
 
-				<section data-auto-animate style="height:600px;width:1400px;left:-200px;">
-					<div class='tl-circle' data-id="1" style="background:purple;bottom:40px;"></div>
-					<div class='tl-circle' data-id="2" style="bottom:20px;"></div>
-					<div class='tl-circle' data-id="3" style="bottom:00px;"></div>
+				<section data-auto-animate style="height:600px;width:1200px;left:-125px;">
+					<div class='tl-circle' data-id="1" style="background:purple;bottom:40px;left:145px"></div>
+					<div class='tl-circle' data-id="2" style="bottom:20px;left:145px"></div>
+					<div class='tl-circle' data-id="3" style="bottom:00px;left:145px"></div>
           <div class="container" style="height:600px;">
             <div style='width:50%'>
   <pre><code style="font-size:15px;line-height: 1;height:600px;" data-trim data-noescape>
@@ -89,7 +89,7 @@
   </code></pre>
             </div>
             <div style='width:50%;'>
-  <pre><code style="font-size:15px;line-height:1;height:500%" data-trim data-noescape>
+  <pre style="height:90%"><code style="font-size:15px;line-height:1;height:500%" data-trim data-noescape>
   void get_login(char* login,char* pass){
     fgets(name,10,stdin);
     fgets(pass,10,stdin);
@@ -116,6 +116,7 @@
     strcpy(fullname, user.last);
     printf("Name: %s, Age: %d", fullname,age);
   }
+
   int main(){
     char[10] name;
     char[10] pass;
@@ -127,130 +128,152 @@
   </code></pre>
             </div>
           </div>
+          <p class='fragment'>A function has one purpose</p>
+      	</section>     	
+
+				<section data-auto-animate style="height:600px;width:1200px;left:-125px;">
+					<div class='tl-circle' data-id="1" style="background:purple;bottom:40px;left:145px"></div>
+					<div class='tl-circle' data-id="2" style="bottom:20px;left:145px"></div>
+					<div class='tl-circle' data-id="3" style="bottom:00px;left:145px"></div>
+          <div class="container" style="height:600px;">
+            <div style='width:50%'>
+  <pre style="height:80%"><code style="font-size:15px;line-height:1;height:500%" data-trim data-noescape>
+  public class Program{
+    private class User {
+      private string first;
+      private string last;
+      private int age;
+      Users next;
+      public User(string f, string l, int age){
+        first = f;
+        last = l;
+        this.age = age;
+        this.next = null;
+      }
+    }
+    private User users;
+    public Program(){
+      users = null;
+    }
+    
+    public User lookup(string name){
+      for (User user = users;users !=null;users=users.next){
+        if (user.name == name)
+          return user;
+      }
+      return null;
+    }
+    public void addUser(string f, string l, int a){
+      User head = new User(f,l,a);
+      head.next = users;
+      users = head;
+    }
+  }
+  </code></pre>
+            </div>
+            <div style='width:50%;'>
+  <pre style="height:90%"><code style="font-size:15px;line-height:1;height:500%" data-trim data-noescape>
+  //User.java
+  package directory;
+  public class User {
+    private string first;
+    private string last;
+    private int age;
+    public Users next;
+    public User(string f, string l, int age){
+      first = f;
+      last = l;
+      this.age = age;
+      this.next = null;
+    }
+  }
+
+  //Directory.java
+  package directory;
+  public class Directory {
+    private User users;
+    public Directory(){
+      users = null;
+    }
+    
+    public User lookup(string name){
+      for (User user = users;users !=null;users=users.next){
+        if (user.name == name)
+          return user;
+      }
+      return null;
+    }
+    public void addUser(string f, string l, int a){
+      User head = new User(f,l,a);
+      head.next = users;
+      users = head;
+    }
+  }
+  </code></pre>
+            </div>
+          </div>
+          <p class='fragment'>A file has one part of the project</p>
       	</section>     	
 
 				<section data-auto-animate style="height:600px">
 					<h3>Git</h3>
-					<div class='tl-circle' data-id="1" style="background:purple;bottom:60px;"></div>
-					<div class='tl-circle' data-id="2" style="bottom:40px;"></div>
-					<div class='tl-circle' data-id="3" style="bottom:20px;"></div>
-					<div class='tl-circle' data-id="4" style="bottom:00px;"></div>
+					<div class='tl-circle' data-id="1" style="bottom:40px;"></div>
+					<div class='tl-circle' data-id="2" style="background:blue;bottom:20px;"></div>
+					<div class='tl-circle' data-id="3" style="bottom:00px;"></div>
+          <p>Recall: This image of snapshot storage that Git uses</p>
+          <img style="height:300px" src="dist/assets/snaps.png">
+          <p class='fragment'>So what is being stored?</p>
 				</section>			
 
 				<section data-auto-animate style="height:600px">
-					<h3>What is Git?</h3>
-					<div class='tl-circle' data-id="1" style="background:purple;bottom:60px;"></div>
-					<div class='tl-circle' data-id="2" style="bottom:40px;"></div>
-					<div class='tl-circle' data-id="3" style="bottom:20px;"></div>
-					<div class='tl-circle' data-id="4" style="bottom:00px;"></div>
-          <div data-auto-animate class="container">
-            <div data-auto-animate style='width:50%'>
-              <p data-id=5>My Number: 01134</p>
-              <p data-id=6>---------------</p>
-              <p data-id=7>My Number: 01234</p>
-              <p data-id=8>---------------</p>
-              <p data-id=9>My Number: 01235</p>
-              <p data-id=10>---------------</p>
-              <p data-id=11>My Number: 91235</p>
+					<h3>Git</h3>
+					<div class='tl-circle' data-id="1" style="bottom:40px;"></div>
+					<div class='tl-circle' data-id="2" style="background:blue;bottom:20px;"></div>
+					<div class='tl-circle' data-id="3" style="bottom:00px;"></div>
+          <div class="container" style="height:600px;">
+            <div style='width:50%'>
+					<div class='fragment tl-data' data-fragment-index="1" style="left:50px;top:100px;">Program.java</div>
+
+					<div class='fragment tl-diamond' data-fragment-index="1" data-id="1" style="background:purple;left:50px;top:200px;"></div>
+					<div class='fragment tl-data' data-id="5" data-fragment-index="1" style="left:120px;top:193px;">45kb</div>
+
+					<div class='fragment tl' data-fragment-index="2" style="background:purple;left:65px;top:240px;"></div>
+					<div class='fragment tl-diamond' data-fragment-index="2" data-id="2" style="background:purple;left:50px;top:280px;"></div>
+					<div class='fragment tl-data' data-fragment-index="2" style="left:120px;top:273px;">40kb</div>
+
+					<div class='fragment tl' data-fragment-index="3" style="background:purple;left:65px;top:320px;"></div>
+					<div class='fragment tl-diamond' data-fragment-index="3" data-id="3" style="background:purple;left:50px;top:360px;"></div>
+					<div class='fragment tl-data' data-fragment-index="3" style="left:120px;top:353px;">55kb</div>
+
+					<div class='fragment tl-data' data-fragment-index="4" style="left:50px;top:434px;">Total:140kb</div>
             </div>
             <div style='width:50%'>
-              <p class="fragment">My Number: 01134</p>
-              <p class='fragment'>---------------</p>
-              <p class='fragment'>My Number: __2__</p>
-              <p class='fragment'>---------------</p>
-              <p class='fragment'>My Number: ____5</p>
-              <p class='fragment'>---------------</p>
-              <p class='fragment'>My Number: 9____</p>
+					<div class='fragment tl-data' data-fragment-index="1" style="left:450px;top:100px;">Directory.java</div>
+					<div class='fragment tl-data' data-fragment-index="1" style="left:750px;top:100px;">Users.java</div>
+
+					<div class='fragment tl-diamond' data-fragment-index="1" data-id="1" style="background:blue;left:450px;top:200px;"></div>
+					<div class='fragment tl-data' data-id="5" data-fragment-index="1" style="left:520px;top:193px;">40kb</div>
+					<div class='fragment tl-diamond' data-fragment-index="1" data-id="1" style="background:green;left:750px;top:200px;"></div>
+					<div class='fragment tl-data' data-id="5" data-fragment-index="1" style="left:820px;top:193px;">10kb</div>
+
+					<div class='fragment tl' data-fragment-index="2" style="background:green;left:765px;top:240px;"></div>
+					<div class='fragment tl-diamond' data-fragment-index="2" data-id="2" style="background:green;left:750px;top:280px;"></div>
+					<div class='fragment tl-data' data-fragment-index="2" style="left:820px;top:273px;">15kb</div>
+
+					<div class='fragment tl' data-fragment-index="3" style="background:blue;left:465px;top:240px;height:160px;"></div>
+					<div class='fragment tl-diamond' data-fragment-index="3" data-id="3" style="background:blue;left:450px;top:360px;"></div>
+					<div class='fragment tl-data' data-fragment-index="3" style="left:520px;top:353px;">45kb</div>
+
+					<div class='fragment tl-data' data-fragment-index="4" style="left:550px;top:434px;">Total: 110kb</div>
             </div>
           </div>
 				</section>			
-
-				<section data-auto-animate style="height:600px">
-					<h3>What is Git?</h3>
-					<div class='tl-circle' data-id="1" style="background:purple;bottom:60px;"></div>
-					<div class='tl-circle' data-id="2" style="bottom:40px;"></div>
-					<div class='tl-circle' data-id="3" style="bottom:20px;"></div>
-					<div class='tl-circle' data-id="4" style="bottom:00px;"></div>
-          <div data-auto-animate class="container">
-            <div data-auto-animate style='width:50%'>
-              <p data-id=5>My Number: 01134</p>
-              <p data-id=6>---------------</p>
-              <p data-id=7>My Number: 01234</p>
-              <p data-id=8>---------------</p>
-              <p data-id=9>My Number: 01235</p>
-              <p data-id=10>---------------</p>
-              <p data-id=11>My Number: 91235</p>
-            </div>
-            <div style='width:50%'>
-              <p>My Number: 01134</p>
-              <p>---------------</p>
-              <p>My Number: __2__</p>
-              <p>---------------</p>
-              <p>My Number: ____5</p>
-              <p>---------------</p>
-              <p>My Number: 9____</p>
-            </div>
-          </div>
-          <p>Now imagine each digit is a file</p>
-				</section>			
-
-				<section data-auto-animate style="height:600px">
-					<h3>Setting Up Git</h3>
-					<div class='tl-circle' data-id="1" style="bottom:10px;"></div>
-					<div class='tl-circle' data-id="2" style="background:blue;bottom:-10px;"></div>
-					<div class='tl-circle' data-id="3" style="bottom:-30px;"></div>
-					<div class='tl-circle' data-id="4" style="bottom:-50px;"></div>
-          <section data-auto-animate>
-          <p>Assumption: you have a linux terminal</p>
-          <p>Goal: Clone/make our first Repository</p>
-          </section>
-          <section data-auto-animate>
-          <p>Assumption: you have a linux terminal</p>
-          <ul>
-            <li class=fade-up>Make Github Account</li>
-          </ul> 
-          <p>Goal: Clone/make our first Repository</p>
-          </section>
-          <section data-auto-animate>
-          <p>Assumption: you have a linux terminal</p>
-          <ul>
-            <li>Make Github Account</li>
-            <li class=fade-up>Install Git</li>
-          </ul> 
-          <p>Goal: Clone/make our first Repository</p>
-          </section>
-          <section data-auto-animate>
-          <p>Assumption: you have a linux terminal</p>
-          <ul>
-          <li>Make Github Account</li>
-          <li data-id="5">Install Git</li>
-          <li data-id="6" class="fade-up">Setup SSH Keys</li>
-          </ul> 
-          <p>Goal: Clone/make our first Repository</p>
-          </section>
-          <section data-auto-animate>
-          <p>Install Git</p>
-          <p>`sudo apt install git`</p>
-          </section>
-          <section data-auto-animate>
-          <p>setup SSH keys</p>
-          <p>These are for security: take CMSC414 or CMSC356</p>
-          <p>`ssh-keygen -t rsa`</p>
-          </section>
-          <section data-auto-animate>
-          <p>Clone a repo</p>
-          <p>Make a repo on github</p>
-          <p>`git clone git@github.com:&lt;username&gt;/&lt;repo&gt;`</p>
-          <p class='fragment'>`git clone git@github.com:cliffbakalian/workshops`</p>
-          </section>
-        </section>
 
 				<section data-auto-animate style="height:600px">
 					<h3>Testing</h3>
-					<div class='tl-circle' data-id="1" style="bottom:10px;"></div>
-					<div class='tl-circle' data-id="2" style="bottom:-10px;"></div>
-					<div class='tl-circle' data-id="3" style="background:green;bottom:-30px;"></div>
-					<div class='tl-circle' data-id="4" style="bottom:-50px;"></div>
+					<div class='tl-circle' data-id="1" style="bottom:40px;"></div>
+					<div class='tl-circle' data-id="2" style="bottom:20px;"></div>
+					<div class='tl-circle' data-id="3" style="background:green;bottom:00px;"></div>
         </section>
       </div>
 		</div>
