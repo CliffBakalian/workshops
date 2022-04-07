@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>CMSC389T 2022</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="plugin/highlight/stackoverflow.css">
+
+		<link rel="stylesheet" href="dist/mystyle.css"> 
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-auto-animate data-auto-animate-unmatched="fade-up">
+          <h1>Modularity</h1>
+          <h3>Borrowing from Functional Programming</h3>
+            <img style="height:300px" src="dist/assets/git.png" >
+				</section>
+
+				<section data-auto-animate style="height: 600px">
+					<h3>Modularity</h3>
+					<div class='fragment tl-diamond' data-fragment-index="1" data-id="1" style="background:purple;top:100px;"></div>
+					<div class='fragment tl-data' data-id="5" data-fragment-index="1" style="top:93px;">What is Modularity?</div>
+
+					<div class='fragment tl' data-fragment-index="2" style="top:140px;"></div>
+					<div class='fragment tl-diamond' data-fragment-index="2" data-id="2" style="background:blue;top:180px;"></div>
+					<div class='fragment tl-data' data-fragment-index="2" style="top:173px;">Git</div>
+
+					<div class='fragment tl' data-fragment-index="3" style="top:220px;"></div>
+					<div class='fragment tl-diamond' data-fragment-index="3" data-id="3" style="background:green;top:260px;"></div>
+					<div class='fragment tl-data' data-fragment-index="3" style="top:253px;">Testing</div>
+
+				</section>
+
+				<section data-auto-animate style="height:600px">
+					<h3>What is Modularity?</h3>
+					<div class='tl-circle' data-id="1" style="background:purple;bottom:40px;"></div>
+					<div class='tl-circle' data-id="2" style="bottom:20px;"></div>
+					<div class='tl-circle' data-id="3" style="bottom:00px;"></div>
+          <p>Modularity (noun): <span class ="fragment fade-up">The use of individualy distinct functional units, as in assembling an electronic or mechanical system</span></p>
+          <p class="fragment fade-up">Consider a Desktop Computer</p>
+          <ul>
+            <li class='fragment fade-up'>Motherboard</li>
+            <li class='fragment fade-up'>CPU</li>
+            <li class='fragment fade-up'>GPU</li>
+            <li class='fragment fade-up'>RAM</li>
+            <li class='fragment fade-up'>Hardrive</li>
+          </ul>
+         </section>
+
+				<section data-auto-animate style="height:600px">
+					<h3>What is Modularity?</h3>
+					<div class='tl-circle' data-id="1" style="background:purple;bottom:40px;"></div>
+					<div class='tl-circle' data-id="2" style="bottom:20px;"></div>
+					<div class='tl-circle' data-id="3" style="bottom:00px;"></div>
+          <p>Modularity (noun): The use of individualy distinct functional units, as in assembling an electronic or mechanical system</p>
+          <p>Code and Project Design is no different</p>
+      	</section>     	
+
+				<section data-auto-animate style="height:600px;width:1400px;left:-200px;">
+					<div class='tl-circle' data-id="1" style="background:purple;bottom:40px;"></div>
+					<div class='tl-circle' data-id="2" style="bottom:20px;"></div>
+					<div class='tl-circle' data-id="3" style="bottom:00px;"></div>
+          <div class="container" style="height:600px;">
+            <div style='width:50%'>
+  <pre><code style="font-size:15px;line-height: 1;height:600px;" data-trim data-noescape>
+  int main(){
+    char name[10];
+    char pass[10];
+    fgets(name,10,stdin);
+    fgets(pass,10,stdin);
+    char *pword = "secret"
+    if (!strcmp(pword,pass)){
+      user* login = users;
+      for(user* user = users;user.next;user = user.next){
+        if (!strcmp(user.name,name)){
+          int age = user.age
+          char fullname[80];
+          strcpy(fullname, user.name);
+          strcpy(fullname, user.last);
+          printf("Name: %s, Age: %d", fullname,age);
+        }
+      }
+    }
+  }
+  </code></pre>
+            </div>
+            <div style='width:50%;'>
+  <pre><code style="font-size:15px;line-height:1;height:500%" data-trim data-noescape>
+  void get_login(char* login,char* pass){
+    fgets(name,10,stdin);
+    fgets(pass,10,stdin);
+  }
+
+  int authenticate(char* pass){
+    char *pword = "secret"
+    return !strcmp(pword,pass);
+  }
+
+  user* get_user(char* name){
+    user* login = users;
+    for(user* user = users;user.next;user = user.next){
+      if (!strcmp(user.name,name)){
+        return user;
+      }
+    }
+  }
+
+  void print_user(user* user){
+    int age = user.age
+    char fullname[80];
+    strcpy(fullname, user.name);
+    strcpy(fullname, user.last);
+    printf("Name: %s, Age: %d", fullname,age);
+  }
+  int main(){
+    char[10] name;
+    char[10] pass;
+    get_login(name,pass);
+    if authenticate(pass){
+      print_user(get_user(name));
+    }
+  }
+  </code></pre>
+            </div>
+          </div>
+      	</section>     	
+
+				<section data-auto-animate style="height:600px">
+					<h3>Git</h3>
+					<div class='tl-circle' data-id="1" style="background:purple;bottom:60px;"></div>
+					<div class='tl-circle' data-id="2" style="bottom:40px;"></div>
+					<div class='tl-circle' data-id="3" style="bottom:20px;"></div>
+					<div class='tl-circle' data-id="4" style="bottom:00px;"></div>
+				</section>			
+
+				<section data-auto-animate style="height:600px">
+					<h3>What is Git?</h3>
+					<div class='tl-circle' data-id="1" style="background:purple;bottom:60px;"></div>
+					<div class='tl-circle' data-id="2" style="bottom:40px;"></div>
+					<div class='tl-circle' data-id="3" style="bottom:20px;"></div>
+					<div class='tl-circle' data-id="4" style="bottom:00px;"></div>
+          <div data-auto-animate class="container">
+            <div data-auto-animate style='width:50%'>
+              <p data-id=5>My Number: 01134</p>
+              <p data-id=6>---------------</p>
+              <p data-id=7>My Number: 01234</p>
+              <p data-id=8>---------------</p>
+              <p data-id=9>My Number: 01235</p>
+              <p data-id=10>---------------</p>
+              <p data-id=11>My Number: 91235</p>
+            </div>
+            <div style='width:50%'>
+              <p class="fragment">My Number: 01134</p>
+              <p class='fragment'>---------------</p>
+              <p class='fragment'>My Number: __2__</p>
+              <p class='fragment'>---------------</p>
+              <p class='fragment'>My Number: ____5</p>
+              <p class='fragment'>---------------</p>
+              <p class='fragment'>My Number: 9____</p>
+            </div>
+          </div>
+				</section>			
+
+				<section data-auto-animate style="height:600px">
+					<h3>What is Git?</h3>
+					<div class='tl-circle' data-id="1" style="background:purple;bottom:60px;"></div>
+					<div class='tl-circle' data-id="2" style="bottom:40px;"></div>
+					<div class='tl-circle' data-id="3" style="bottom:20px;"></div>
+					<div class='tl-circle' data-id="4" style="bottom:00px;"></div>
+          <div data-auto-animate class="container">
+            <div data-auto-animate style='width:50%'>
+              <p data-id=5>My Number: 01134</p>
+              <p data-id=6>---------------</p>
+              <p data-id=7>My Number: 01234</p>
+              <p data-id=8>---------------</p>
+              <p data-id=9>My Number: 01235</p>
+              <p data-id=10>---------------</p>
+              <p data-id=11>My Number: 91235</p>
+            </div>
+            <div style='width:50%'>
+              <p>My Number: 01134</p>
+              <p>---------------</p>
+              <p>My Number: __2__</p>
+              <p>---------------</p>
+              <p>My Number: ____5</p>
+              <p>---------------</p>
+              <p>My Number: 9____</p>
+            </div>
+          </div>
+          <p>Now imagine each digit is a file</p>
+				</section>			
+
+				<section data-auto-animate style="height:600px">
+					<h3>Setting Up Git</h3>
+					<div class='tl-circle' data-id="1" style="bottom:10px;"></div>
+					<div class='tl-circle' data-id="2" style="background:blue;bottom:-10px;"></div>
+					<div class='tl-circle' data-id="3" style="bottom:-30px;"></div>
+					<div class='tl-circle' data-id="4" style="bottom:-50px;"></div>
+          <section data-auto-animate>
+          <p>Assumption: you have a linux terminal</p>
+          <p>Goal: Clone/make our first Repository</p>
+          </section>
+          <section data-auto-animate>
+          <p>Assumption: you have a linux terminal</p>
+          <ul>
+            <li class=fade-up>Make Github Account</li>
+          </ul> 
+          <p>Goal: Clone/make our first Repository</p>
+          </section>
+          <section data-auto-animate>
+          <p>Assumption: you have a linux terminal</p>
+          <ul>
+            <li>Make Github Account</li>
+            <li class=fade-up>Install Git</li>
+          </ul> 
+          <p>Goal: Clone/make our first Repository</p>
+          </section>
+          <section data-auto-animate>
+          <p>Assumption: you have a linux terminal</p>
+          <ul>
+          <li>Make Github Account</li>
+          <li data-id="5">Install Git</li>
+          <li data-id="6" class="fade-up">Setup SSH Keys</li>
+          </ul> 
+          <p>Goal: Clone/make our first Repository</p>
+          </section>
+          <section data-auto-animate>
+          <p>Install Git</p>
+          <p>`sudo apt install git`</p>
+          </section>
+          <section data-auto-animate>
+          <p>setup SSH keys</p>
+          <p>These are for security: take CMSC414 or CMSC356</p>
+          <p>`ssh-keygen -t rsa`</p>
+          </section>
+          <section data-auto-animate>
+          <p>Clone a repo</p>
+          <p>Make a repo on github</p>
+          <p>`git clone git@github.com:&lt;username&gt;/&lt;repo&gt;`</p>
+          <p class='fragment'>`git clone git@github.com:cliffbakalian/workshops`</p>
+          </section>
+        </section>
+
+				<section data-auto-animate style="height:600px">
+					<h3>Testing</h3>
+					<div class='tl-circle' data-id="1" style="bottom:10px;"></div>
+					<div class='tl-circle' data-id="2" style="bottom:-10px;"></div>
+					<div class='tl-circle' data-id="3" style="background:green;bottom:-30px;"></div>
+					<div class='tl-circle' data-id="4" style="bottom:-50px;"></div>
+        </section>
+      </div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script src="plugin/search/search.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+		<script>
+      Reveal.configure({
+        keyboard: {
+          40: 'next', // go to the next slide with down arrow
+          38: 'prev', // go to the next slide with up arrow
+        }
+      });
+			Reveal.initialize({
+				center: true,
+				hash: true,
+        controlsTutorial: false,
+        showSlideNumber: 'print',
+        pdfSeparateFragments: false,
+				math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+				plugins: [ RevealHighlight, RevealMarkdown, RevealMath, RevealSearch, RevealZoom ]
+
+			});
+		</script>
+	</body>
+</html>
