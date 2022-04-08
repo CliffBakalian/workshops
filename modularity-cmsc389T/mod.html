@@ -222,8 +222,18 @@
 					<div class='tl-circle' data-id="3" style="bottom:00px;"></div>
           <p>Recall: This image of snapshot storage that Git uses</p>
           <img style="height:300px" src="dist/assets/snaps.png">
-          <p class='fragment'>So what is being stored?</p>
-				</section>			
+          <p class='fragment'>So what is being stored?<span class='fragment'>(and how?)</span></p>
+				</section>
+
+				<section data-auto-animate style="height:600px">
+					<h3>Git</h3>
+					<div class='tl-circle' data-id="1" style="bottom:40px;"></div>
+					<div class='tl-circle' data-id="2" style="background:blue;bottom:20px;"></div>
+					<div class='tl-circle' data-id="3" style="bottom:00px;"></div>
+          <pre><code>find .git/objects/ -type f</code></pre>
+          <pre><code>git cat-file -p main^{tree}
+git cat-file -s {hash}</code></pre>
+				</section>
 
 				<section data-auto-animate style="height:600px">
 					<h3>Git</h3>
@@ -270,11 +280,218 @@
 				</section>			
 
 				<section data-auto-animate style="height:600px">
+					<h3>Git</h3>
+					<div class='tl-circle' data-id="1" style="bottom:40px;"></div>
+					<div class='tl-circle' data-id="2" style="background:blue;bottom:20px;"></div>
+					<div class='tl-circle' data-id="3" style="bottom:00px;"></div>
+          <p>Also consider how this affects merge conflicts</p>
+  <pre><code class='fragment'>
+  echo "make file" >> file
+  git add file;git commit -m "file"
+  git checkout -b other
+  echo "on other branch" >> file
+  git commit -am "edited on other"
+  git checkout main
+  echo "on main branch" >> file
+  git commit -am "edited on main"
+  git merge other
+  </code></pre>
+				</section>
+
+				<section data-auto-animate style="height:600px">
 					<h3>Testing</h3>
 					<div class='tl-circle' data-id="1" style="bottom:40px;"></div>
 					<div class='tl-circle' data-id="2" style="bottom:20px;"></div>
 					<div class='tl-circle' data-id="3" style="background:green;bottom:00px;"></div>
+            <p>Testing: important for correctness (of a language, of a program, of a property,etc)</p>
         </section>
+
+				<section data-auto-animate style="height:600px;width:1200px;left:-125px;">
+					<div class='tl-circle' data-id="1" style="background:purple;bottom:40px;left:145px"></div>
+					<div class='tl-circle' data-id="2" style="bottom:20px;left:145px"></div>
+					<div class='tl-circle' data-id="3" style="bottom:00px;left:145px"></div>
+          <div class="container" style="height:600px;">
+            <div style='width:50%'>
+  <pre><code style="font-size:15px;line-height: 1;height:600px;" data-trim data-noescape>
+  int main(){
+    char name[10];
+    char pass[10];
+    fgets(name,10,stdin);
+    fgets(pass,10,stdin);
+    char *pword = "secret"
+    if (!strcmp(pword,pass)){
+      user* login = users;
+      for(user* user = users;user.next;user = user.next){
+        if (!strcmp(user.name,name)){
+          int age = user.age
+          char fullname[80];
+          strcpy(fullname, user.name);
+          strcpy(fullname, user.last);
+          printf("Name: %s, Age: %d", fullname,age);
+        }
+      }
+    }
+  }
+  </code></pre>
+            </div>
+            <div style='width:50%;'>
+  <pre style="height:90%"><code style="font-size:15px;line-height:1;height:500%" data-trim data-noescape>
+  void get_login(char* login,char* pass){
+    fgets(name,10,stdin);
+    fgets(pass,10,stdin);
+  }
+
+  int authenticate(char* pass){
+    char *pword = "secret"
+    return !strcmp(pword,pass);
+  }
+
+  user* get_user(char* name){
+    user* login = users;
+    for(user* user = users;user.next;user = user.next){
+      if (!strcmp(user.name,name)){
+        return user;
+      }
+    }
+  }
+
+  void print_user(user* user){
+    int age = user.age
+    char fullname[80];
+    strcpy(fullname, user.name);
+    strcpy(fullname, user.last);
+    printf("Name: %s, Age: %d", fullname,age);
+  }
+
+  int main(){
+    char[10] name;
+    char[10] pass;
+    get_login(name,pass);
+    if authenticate(pass){
+      print_user(get_user(name));
+    }
+  }
+  </code></pre>
+            </div>
+          </div>
+          <p class='fragment'>Where does the testing file go?</p>
+      	</section>     	
+
+        <section data-auto-animate style="height:600px;width:1200px;left:-125px;">
+					<div class='tl-circle' data-id="1" style="background:purple;bottom:40px;left:145px"></div>
+					<div class='tl-circle' data-id="2" style="bottom:20px;left:145px"></div>
+					<div class='tl-circle' data-id="3" style="bottom:00px;left:145px"></div>
+          <p>Consider the following:</p>
+          <div class="container" style="height:600px;">
+            <div style='width:50%'>
+  <pre><code style="font-size:15px;line-height: 1;height:600px;" data-trim data-noescape>
+  int main(){
+    char name[10];
+    char pass[10];
+    fgets(name,10,stdin);
+    fgets(pass,10,stdin);
+    char *pword = "secret"
+    if (!strcmp(pword,pass)){
+      user* login = users;
+      for(user* user = users;user.next;user = user.next){
+        if (!strcmp(user.name,name)){
+          int age = user.age
+          char fullname[80];
+          strcpy(fullname, user.name);
+          strcpy(fullname, user.last);
+          printf("Name: %s, Age: %d", fullname,age);
+        }
+      }
+    }
+  }
+  </code></pre>
+            </div>
+            <div style='width:50%;'>
+  <pre><code style="font-size:15px;line-height: 1;" data-trim data-noescape>
+  assertTrue(./main.x < filein == "cliff") 
+  </code></pre>
+            <p class='fragment' data-fragment-index='1'>if false, many points of failue</p>
+            </div>
+          </div>
+      	</section>     	
+
+        <section data-auto-animate style="height:600px;width:1200px;left:-125px;">
+					<div class='tl-circle' data-id="1" style="background:purple;bottom:40px;left:145px"></div>
+					<div class='tl-circle' data-id="2" style="bottom:20px;left:145px"></div>
+					<div class='tl-circle' data-id="3" style="bottom:00px;left:145px"></div>
+          <p>Consider the following:</p>
+          <div class="container" style="height:600px;">
+            <div style='width:50%'>
+  <pre style="height:90%"><code style="font-size:15px;line-height:1;height:500%" data-trim data-noescape>
+  void get_login(char* login,char* pass){
+    fgets(name,10,stdin);
+    fgets(pass,10,stdin);
+  }
+
+  int authenticate(char* pass){
+    char *pword = "secret"
+    return !strcmp(pword,pass);
+  }
+
+  user* get_user(char* name){
+    user* login = users;
+    for(user* user = users;user.next;user = user.next){
+      if (!strcmp(user.name,name)){
+        return user;
+      }
+    }
+  }
+
+  void print_user(user* user){
+    int age = user.age
+    char fullname[80];
+    strcpy(fullname, user.name);
+    strcpy(fullname, user.last);
+    printf("Name: %s, Age: %d", fullname,age);
+  }
+
+  int main(){
+    char[10] name;
+    char[10] pass;
+    get_login(name,pass);
+    if authenticate(pass){
+      print_user(get_user(name));
+    }
+  }
+  </code></pre>
+            </div>
+            <div style='width:50%;'>
+  <pre><code style="font-size:15px;line-height: 1;" data-trim data-noescape>
+  get_login(&log, &pass);
+  assertTrue(log == filein[0]);
+  assertTrue(log == filein[1]); 
+
+  assertTrue(authenticate("secret");)
+  assertTrue(authenticate("anythingelse");)
+
+  assertNull(get_user("not_cliff");)
+  assertFalse(NULL == get_user("not_cliff");)
+
+  assertTrue((print_user("cliff") > fileout)
+  </code></pre>
+            <p class='fragment' data-fragment-index='1'>if false, we know where</p>
+            <p class='fragment' data-fragment-index='2'>tl;dr: Modularity gives each tests more usefulness</p>
+            </div>
+          </div>
+      	</section>     	
+
+        <section data-auto-animate style="height:600px;width:1200px;left:-125px;">
+          <h3>Conclusion</h3>
+          <ul>
+          <li class='fragment fade-down'>Modularity helps many people work on large projects</li>
+          <li class='fragment fade-down'>Modularity allows for parallelism</li>
+          <li class='fragment fade-down'>Modularity makes git more efficient</li>
+          <li class='fragment fade-down'>Modularity helps avoid merge conflicts</li>
+          <li class='fragment fade-down'>Modularity makes testing more efficient</li>
+          <li class='fragment fade-down'>Modularity helps solve problems</li>
+          <li class='fragment fade-down'>Modularity helps guide on how to design projects</li>
+          </ul>
+      	</section>     	
       </div>
 		</div>
 
