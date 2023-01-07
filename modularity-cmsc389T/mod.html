@@ -33,6 +33,9 @@
 					<div class='fragment tl-diamond' data-fragment-index="3" data-id="3" style="background:green;top:260px;"></div>
 					<div class='fragment tl-data' data-fragment-index="3" style="top:253px;">Testing</div>
 
+					<div class='fragment tl' data-fragment-index="4" style="top:300px;"></div>
+					<div class='fragment tl-diamond' data-fragment-index="4" data-id="4" style="background:cyan;top:340px;"></div>
+					<div class='fragment tl-data' data-fragment-index="4" style="top:333px;">Testing</div>
 				</section>
 
 				<section data-auto-animate style="height:600px">
@@ -40,6 +43,7 @@
 					<div class='tl-circle' data-id="1" style="background:purple;bottom:40px;"></div>
 					<div class='tl-circle' data-id="2" style="bottom:20px;"></div>
 					<div class='tl-circle' data-id="3" style="bottom:00px;"></div>
+					<div class='tl-circle' data-id="4" style="bottom:-20px;"></div>
           <p>Modularity (noun): <span class ="fragment fade-up">The use of individualy distinct functional units, as in assembling an electronic or mechanical system</span></p>
           <p class="fragment fade-up">Consider a Desktop Computer</p>
           <ul>
@@ -56,6 +60,7 @@
 					<div class='tl-circle' data-id="1" style="background:purple;bottom:40px;"></div>
 					<div class='tl-circle' data-id="2" style="bottom:20px;"></div>
 					<div class='tl-circle' data-id="3" style="bottom:00px;"></div>
+					<div class='tl-circle' data-id="4" style="bottom:-20px;"></div>
           <p>Modularity (noun): The use of individualy distinct functional units, as in assembling an electronic or mechanical system</p>
           <p>Code and Project Design is no different</p>
       	</section>     	
@@ -64,6 +69,7 @@
 					<div class='tl-circle' data-id="1" style="background:purple;bottom:40px;left:145px"></div>
 					<div class='tl-circle' data-id="2" style="bottom:20px;left:145px"></div>
 					<div class='tl-circle' data-id="3" style="bottom:00px;left:145px"></div>
+					<div class='tl-circle' data-id="4" style="bottom:-20px;left:145px"></div>
           <div class="container" style="height:600px;">
             <div style='width:50%'>
   <pre><code style="font-size:15px;line-height: 1;height:600px;" data-trim data-noescape>
@@ -135,6 +141,7 @@
 					<div class='tl-circle' data-id="1" style="background:purple;bottom:40px;left:145px"></div>
 					<div class='tl-circle' data-id="2" style="bottom:20px;left:145px"></div>
 					<div class='tl-circle' data-id="3" style="bottom:00px;left:145px"></div>
+					<div class='tl-circle' data-id="4" style="bottom:-20px;left:145px"></div>
           <div class="container" style="height:600px;">
             <div style='width:50%'>
   <pre style="height:80%"><code style="font-size:15px;line-height:1;height:500%" data-trim data-noescape>
@@ -220,6 +227,7 @@
 					<div class='tl-circle' data-id="1" style="bottom:40px;"></div>
 					<div class='tl-circle' data-id="2" style="background:blue;bottom:20px;"></div>
 					<div class='tl-circle' data-id="3" style="bottom:00px;"></div>
+					<div class='tl-circle' data-id="4" style="bottom:-20px;"></div>
           <p>Recall: This image of snapshot storage that Git uses</p>
           <img style="height:300px" src="dist/assets/snaps.png">
           <p class='fragment'>So what is being stored?<span class='fragment'>(and how?)</span></p>
@@ -230,6 +238,7 @@
 					<div class='tl-circle' data-id="1" style="bottom:40px;"></div>
 					<div class='tl-circle' data-id="2" style="background:blue;bottom:20px;"></div>
 					<div class='tl-circle' data-id="3" style="bottom:00px;"></div>
+					<div class='tl-circle' data-id="4" style="bottom:-20px;"></div>
           <pre><code>find .git/objects/ -type f</code></pre>
           <pre><code>git cat-file -p main^{tree}
 git cat-file -s {hash}</code></pre>
@@ -240,22 +249,23 @@ git cat-file -s {hash}</code></pre>
 					<div class='tl-circle' data-id="1" style="bottom:40px;"></div>
 					<div class='tl-circle' data-id="2" style="background:blue;bottom:20px;"></div>
 					<div class='tl-circle' data-id="3" style="bottom:00px;"></div>
+					<div class='tl-circle' data-id="4" style="bottom:-20px;"></div>
           <div class="container" style="height:600px;">
             <div style='width:50%'>
 					<div class='fragment tl-data' data-fragment-index="1" style="left:50px;top:100px;">Program.java</div>
 
 					<div class='fragment tl-diamond' data-fragment-index="1" data-id="1" style="background:purple;left:50px;top:200px;"></div>
-					<div class='fragment tl-data' data-id="5" data-fragment-index="1" style="left:120px;top:193px;">45kb</div>
+					<div class='fragment tl-data' data-id="5" data-fragment-index="1" style="left:120px;top:193px;">50kb</div>
 
 					<div class='fragment tl' data-fragment-index="2" style="background:purple;left:65px;top:240px;"></div>
 					<div class='fragment tl-diamond' data-fragment-index="2" data-id="2" style="background:purple;left:50px;top:280px;"></div>
-					<div class='fragment tl-data' data-fragment-index="2" style="left:120px;top:273px;">40kb</div>
+					<div class='fragment tl-data' data-fragment-index="2" style="left:120px;top:273px;">55kb</div>
 
 					<div class='fragment tl' data-fragment-index="3" style="background:purple;left:65px;top:320px;"></div>
 					<div class='fragment tl-diamond' data-fragment-index="3" data-id="3" style="background:purple;left:50px;top:360px;"></div>
-					<div class='fragment tl-data' data-fragment-index="3" style="left:120px;top:353px;">55kb</div>
+					<div class='fragment tl-data' data-fragment-index="3" style="left:120px;top:353px;">60kb</div>
 
-					<div class='fragment tl-data' data-fragment-index="4" style="left:50px;top:434px;">Total:140kb</div>
+					<div class='fragment tl-data' data-fragment-index="4" style="left:50px;top:434px;">Total:165kb</div>
             </div>
             <div style='width:50%'>
 					<div class='fragment tl-data' data-fragment-index="1" style="left:450px;top:100px;">Directory.java</div>
@@ -284,6 +294,7 @@ git cat-file -s {hash}</code></pre>
 					<div class='tl-circle' data-id="1" style="bottom:40px;"></div>
 					<div class='tl-circle' data-id="2" style="background:blue;bottom:20px;"></div>
 					<div class='tl-circle' data-id="3" style="bottom:00px;"></div>
+					<div class='tl-circle' data-id="4" style="bottom:-20px;"></div>
           <p>Also consider how this affects merge conflicts</p>
   <pre><code class='fragment'>
   echo "make file" >> file
@@ -303,13 +314,15 @@ git cat-file -s {hash}</code></pre>
 					<div class='tl-circle' data-id="1" style="bottom:40px;"></div>
 					<div class='tl-circle' data-id="2" style="bottom:20px;"></div>
 					<div class='tl-circle' data-id="3" style="background:green;bottom:00px;"></div>
+					<div class='tl-circle' data-id="4" style="bottom:-20px;"></div>
             <p>Testing: important for correctness (of a language, of a program, of a property,etc)</p>
         </section>
 
 				<section data-auto-animate style="height:600px;width:1200px;left:-125px;">
-					<div class='tl-circle' data-id="1" style="background:purple;bottom:40px;left:145px"></div>
+					<div class='tl-circle' data-id="1" style="bottom:40px;left:145px"></div>
 					<div class='tl-circle' data-id="2" style="bottom:20px;left:145px"></div>
-					<div class='tl-circle' data-id="3" style="bottom:00px;left:145px"></div>
+					<div class='tl-circle' data-id="3" style="background:green;bottom:00px;left:145px"></div>
+					<div class='tl-circle' data-id="4" style="bottom:-20px;left:145px"></div>
           <div class="container" style="height:600px;">
             <div style='width:50%'>
   <pre><code style="font-size:15px;line-height: 1;height:600px;" data-trim data-noescape>
@@ -378,9 +391,10 @@ git cat-file -s {hash}</code></pre>
       	</section>     	
 
         <section data-auto-animate style="height:600px;width:1200px;left:-125px;">
-					<div class='tl-circle' data-id="1" style="background:purple;bottom:40px;left:145px"></div>
+					<div class='tl-circle' data-id="1" style="bottom:40px;left:145px"></div>
 					<div class='tl-circle' data-id="2" style="bottom:20px;left:145px"></div>
-					<div class='tl-circle' data-id="3" style="bottom:00px;left:145px"></div>
+					<div class='tl-circle' data-id="3" style="background:green;bottom:00px;left:145px"></div>
+					<div class='tl-circle' data-id="4" style="bottom:-20px;left:145px"></div>
           <p>Consider the following:</p>
           <div class="container" style="height:600px;">
             <div style='width:50%'>
@@ -419,6 +433,7 @@ git cat-file -s {hash}</code></pre>
 					<div class='tl-circle' data-id="1" style="background:purple;bottom:40px;left:145px"></div>
 					<div class='tl-circle' data-id="2" style="bottom:20px;left:145px"></div>
 					<div class='tl-circle' data-id="3" style="bottom:00px;left:145px"></div>
+					<div class='tl-circle' data-id="4" style="bottom:-20px;left:145px"></div>
           <p>Consider the following:</p>
           <div class="container" style="height:600px;">
             <div style='width:50%'>
@@ -480,6 +495,51 @@ git cat-file -s {hash}</code></pre>
           </div>
       	</section>     	
 
+				<section data-auto-animate style="height:600px">
+					<h3>Program Design</h3>
+					<div class='tl-circle' data-id="1" style="bottom:40px;"></div>
+					<div class='tl-circle' data-id="2" style="bottom:20px;"></div>
+					<div class='tl-circle' data-id="3" style="bottom:00px;"></div>
+					<div class='tl-circle' data-id="4" style="background:cyan;bottom:-20px;"></div>
+          <p>Consider the following functions</p>
+          <pre style='width:800px'><code class='fragment' data-trim data-noescape data-line-numbers=2-4|6-8|10-12|14-16|18-20|22-26|>
+(* ff.ml *)
+let rec concat lst = match lst with 
+[]-> ""
+|h::t -> h^(concat t)
+
+let rec sum lst = match lst with 
+[]-> 0
+|h::t -> h+(sum t)
+
+let rec product lst = match lst with 
+[]-> 1
+|h::t -> h*(productt)
+
+let rec length lst = match lst with 
+[]-> 0
+|_::t -> 1+(length t)
+
+let rec rev lst = match lst with 
+[]-> []
+|h::t -> (rev t) @ [h];;
+
+let rec filter lst compare_fun = match lst with 
+[]-> []
+|h::t -> if compare_fun h then 
+          h::(filter t compare_fun) else 
+          filter t compare_fun;;
+          </code></pre>
+				</section>
+				<section data-auto-animate style="height:600px">
+					<h3>Program Design</h3>
+					<div class='tl-circle' data-id="1" style="bottom:40px;"></div>
+					<div class='tl-circle' data-id="2" style="bottom:20px;"></div>
+					<div class='tl-circle' data-id="3" style="bottom:00px;"></div>
+					<div class='tl-circle' data-id="4" style="background:cyan;bottom:-20px;"></div>
+          <p>Goal: separate iteration from the function used</p>
+          <p class='fragment'>Answer: fold</p>
+				</section>
         <section data-auto-animate style="height:600px;width:1200px;left:-125px;">
           <h3>Conclusion</h3>
           <ul>

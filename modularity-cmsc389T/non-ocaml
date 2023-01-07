@@ -1,0 +1,20 @@
+int sum(int size, int* lst){
+    if (size == 0)
+        return 0;
+    return lst[0] + sum(size-1,&lst[1]);
+}
+
+int prod(int size, int* lst){
+    if (size == 0)
+        return 0;
+    return lst[0] * prod(size-1,&lst[1]);
+}
+
+char* concat(int size, int* slst, char** clst){
+  if(size == 0)
+    return "";
+  if(size==1)
+    return clst[0];
+  strncat(clst[0],concat(size-1,&slst[1],&clst[1]),slst[1])
+  returt clst[0];
+}
