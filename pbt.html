@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>CMSC389 - Property Based Testing</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="plugin/highlight/stackoverflow.css">
+
+		<link rel="stylesheet" href="dist/mystyle.css"> 
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-auto-animate data-auto-animate-unmatched="fade-up">
+          <h1>CMSC389</h1>
+          <h3>Testing</h3>
+				</section>
+
+				<section data-auto-animate class='fixvert'style="height: 600px">
+					<h3>Testing</h3>
+					<div class='fragment tl-diamond' data-fragment-index="1" data-id="1" style="background:purple;top:100px;"></div>
+					<div class='fragment tl-data' data-fragment-index="1" style="top:93px;">Testing</div>
+
+					<div class='fragment tl' data-fragment-index="2" style="top:140px;"></div>
+					<div class='fragment tl-diamond' data-fragment-index="2" data-id="2" style="background:blue;top:180px;"></div>
+					<div class='fragment tl-data' data-fragment-index="2" style="top:173px;">Unit Testing</div>
+
+					<div class='fragment tl' data-fragment-index="3" style="top:220px;"></div>
+					<div class='fragment tl-diamond' data-fragment-index="3" data-id="3" style="background:green;top:260px;"></div>
+					<div class='fragment tl-data' data-fragment-index="3" style="top:253px;">Property Based Testing</div>
+				</section>
+
+				<section data-auto-animate class='fixvert' style="height:600px;">
+					<h3>Testing</h3>
+					<div class='tl-circle' data-id="1" style="background:purple;bottom:10px;"></div>
+					<div class='tl-circle' data-id="2" style="bottom:-10px;"></div>
+					<div class='tl-circle' data-id="3" style="bottom:-30px;"></div>
+        </section>
+
+				<section data-auto-animate style="height:600px;">
+					<h3>Testing</h3>
+					<div class='tl-circle' data-id="1" style="background:purple;bottom:10px;"></div>
+					<div class='tl-circle' data-id="2" style="bottom:-10px;"></div>
+					<div class='tl-circle' data-id="3" style="bottom:-30px;"></div>
+          <section data-auto-animate>
+          <p>Test: routine that checks the operation of your code</p>
+          </section>
+          <section data-auto-animate>
+          <p>Why Test</p>
+          <ul>
+          <li class='fragment'>Save Time</li>
+          <li class='fragment'>Allows for Expansion</li>
+          <li class='fragment'>Increases Trust</li>
+          <li class='fragment'>Helps Collaboration</li>
+          </ul>
+          </section>
+          <section data-auto-animate>
+          <p>Things to Test</p>
+          <ul>
+          <li class='fragment'>Branch Coverage</li>
+          <li class='fragment'>Statement Coverage</li>
+          </ul>
+          </section>
+          <section data-auto-animate>
+          <p>How to Test</p>
+          <ul>
+          <li class='fragment'>White Box</li>
+          <li class='fragment'>Black Box</li>
+          </ul>
+          </section>
+          <section data-auto-animate>
+          <p>Types of Tests</p>
+          <ul>
+          <li class='fragment'>Isolated</li>
+          <li class='fragment'>Integration</li>
+          <li class='fragment'>Functional</li>
+          </ul>
+          </section>
+        </section>
+
+				<section data-auto-animate style="height:600px">
+					<h3>Unit Testing</h3>
+					<div class='tl-circle' data-id="1" style="bottom:10px;"></div>
+					<div class='tl-circle' data-id="2" style="background:blue;bottom:-10px;"></div>
+					<div class='tl-circle' data-id="3" style="bottom:-30px;"></div>
+          <section data-auto-animate>
+          <p>Unit test: testing units of a program</p>
+          <pre><code data-trim data-line-numbers class='fragment'>
+int[] arr = [1,2,3,4];
+boolean sumEven(int[] arr){
+  int sum = 0;
+  for(int i =0; i < arr.length; i++)
+    sum += arr[i]; 
+  return sum % 2 == 0;
+}
+
+          </code></pre>
+          <p class='fragment'>We can test by printing:</p>
+          <pre><code data-trim data-line-numbers class='fragment'>
+System.out.println(sumEven([1,2,3,4]));
+System.out.println(sumEven([1,2,4]));
+System.out.println(sumEven([2]));
+System.out.println(sumEven([1]));
+          </code></pre>
+          </section>
+          <section data-auto-animate>
+          <p>We can test in utop:</p>
+          <pre><code data-trim data-line-numbers >
+System.out.println(sumEven([1,2,3,4]));
+System.out.println(sumEven([1,2,4]));
+System.out.println(sumEven([2]));
+System.out.println(sumEven([1]));
+          </code></pre>
+          <p>Or use a Testing Framework (OUnit, JUnit, Minitest)</p>
+          <pre><code data-trim data-line-numbers class='fragment'>
+public class TestSumEven extends TestCase {
+  public void testSumEven() {
+    assertTrue(sumEven([1,2,3,4]));
+    assertTrue(sumEven[1,2,4]));
+    assertTrue(sumEven[2]));
+    assertTrue(sumEven[1]));
+  }
+}
+          </code></pre>
+          </section>
+          <section data-auto-animate>
+          <pre><code data-trim data-line-numbers>
+public class TestSumEven extends TestCase {
+  public void testSumEven() {
+    assertTrue(sumEven([1,2,3,4]));
+    assertTrue(sumEven[1,2,4]));
+    assertTrue(sumEven[2]));
+    assertTrue(sumEven[1]));
+  }
+}
+          </code></pre>
+          <p>There are some limitations</p>
+          <ul>
+          <li class='fragment'>Need to think of things to check</li>
+          <li class='fragment'>Writing becomes O(n)</li>
+          <li class='fragment'>Edge Cases hard to think of</li>
+          </ul>
+          <p class='fragment'>Enter Property Based Testing</p>
+          </section>
+        </section>
+
+				<section data-auto-animate style="height:600px">
+					<h3>Property Based Testing</h3>
+					<div class='tl-circle' data-id="1" style="bottom:10px;"></div>
+					<div class='tl-circle' data-id="2" style="bottom:-10px;"></div>
+					<div class='tl-circle' data-id="3" style="background:green;bottom:-30px;"></div>
+          <section data-auto-animate>
+          <p>Enter Property Based Testing</p>
+          <p class='fragment'>Property Based Testing (PBT): testing if code satisfies properties</p>
+          <p class='fragment'>Property: Something we expect to be true</p>
+          </section>
+          <section data-auto-animate>
+          <p>Property: Something we expect to be true</p>
+          <p>Some examples</p>
+          <ul>
+          <li class='fragment'>Even integers are divisible by 2</li>
+          <li class='fragment'>Reversing a list twice should be have no effect</li>
+          <li class='fragment'>Adding an element to a list, then looking up that element should succeed</li>
+          <li class='fragment'>Deleting an element to a list, then looking up that element should fail</li>
+          <li class='fragment'>Sum of a list should be &gt;= largest element</li>
+          <li class='fragment'>A sorted list should have smallest value at index 0</li>
+          </ul>
+          </section>
+          <section data-auto-animate>
+          <ul>
+          <li>Even integers are divisible by 2</li>
+          </ul>
+          <p>Once we have a property, we need to express our property in terms of code</p>
+          <pre><code data-trim data-line-numbers class='fragment'>
+fun x -> is_even (x*2) = true 
+          </code></pre>
+          <p>Then use a pbt framework (like qcheck)<p>
+          <pre><code data-trim data-line-numbers class='fragment'>
+let even_test = Test.make (int) (fun x -> is_even (x*2) = true) in
+QCheck_runner.run_tests [even_test]
+          </code></pre>
+          </section>
+          <section data-auto-animate>
+          <p>Limitations on PBT</p>
+          <ul>
+          <li class='fragment'>Not everything can be a property</li>
+          <li class='fragment'>Conversion of property to code can be incorrect</li>
+          </ul>
+          </section>
+        </section>
+      </div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script src="plugin/search/search.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+		<script>
+     Reveal.configure({
+        keyboard: {
+          40: 'next', // go to the next slide with down arrow
+          38: 'prev', // go to the next slide with up arrow
+        }
+      });
+			Reveal.initialize({
+				center: true,
+				hash: true,
+        controlsTutorial: false,
+        showSlideNumber: 'print',
+        pdfSeparateFragments: false,
+				math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+				plugins: [ RevealHighlight, RevealMarkdown, RevealMath, RevealSearch, RevealZoom ]
+
+			});
+		</script>
+	</body>
+</html>
